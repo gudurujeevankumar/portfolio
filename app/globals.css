@@ -1,26 +1,545 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* -------------------------------------------------------------------------- */
+/* DESIGN SYSTEM TOKENS — GUDURU JEEVAN KUMAR PORTFOLIO                       */
+/* Dual Theme System: Systems Terminal (Dark) & Architectural Studio (Light)  */
+/* -------------------------------------------------------------------------- */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color System — Dark Palette by default ("Obsidian + Indigo + Violet + Cyan") */
+  --background: #07080C;
+  --foreground: #F5F5F7;
+  --surface: #0D0F15;
+  --surface-card: rgba(13, 15, 21, 0.78);
+  --surface-elevated: #12151D;
+  --surface-muted: #11141B;
+  --surface-sunken: #050608;
+  --surface-hover: rgba(255, 255, 255, 0.05);
+
+  --muted: #12151D;
+  --muted-foreground: #9CA3AF;
+  --subtle-foreground: #6B7280;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.22);
+  --border-accent: rgba(168, 85, 247, 0.35);
+
+  --accent: #A855F7;
+  --accent-secondary: #3B82F6;
+  --accent-cyan: #22D3EE;
+  --accent-foreground: #ffffff;
+  --accent-subtle: rgba(168, 85, 247, 0.12);
+  --success: #10B981;
+  --warning: #F59E0B;
+
+  --focus: #A855F7;
+
+  --card-shadow: 0 10px 35px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.30);
+  --card-shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.60), 0 4px 14px rgba(0, 0, 0, 0.40);
+  --card-shadow-hover: 0 18px 45px rgba(0, 0, 0, 0.55), 0 0 24px rgba(168, 85, 247, 0.12);
+  --glass-bg: rgba(10, 12, 18, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  --spotlight-color: rgba(168, 85, 247, 0.10);
+  --spotlight-color-cyan: rgba(34, 211, 238, 0.08);
+
+  --grain-opacity: 0.02;
+
+  /* Button Tokens — Dark Mode (Elevated Obsidian with Luminous Rim) */
+  --button-primary-bg: #1A1D27;
+  --button-primary-fg: #FFFFFF;
+  --button-primary-border: rgba(255, 255, 255, 0.18);
+  --button-primary-hover-bg: #252837;
+  --button-primary-hover-border: rgba(168, 85, 247, 0.45);
+  --button-primary-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  --button-secondary-bg: rgba(255, 255, 255, 0.06);
+  --button-secondary-fg: #F5F5F7;
+  --button-secondary-border: rgba(255, 255, 255, 0.14);
+  --button-secondary-hover-bg: rgba(255, 255, 255, 0.10);
+  --button-secondary-hover-border: rgba(255, 255, 255, 0.25);
+  --button-secondary-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  /* Motion Curves & Durations */
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
 }
 
-@theme inline {
+/* Light Theme — "Warm Editorial Foundation (#F7F6F2) + Crisp Dark Typography (#111113) + Soft Pastel Glass" */
+:root.light,
+html.light,
+.light {
+  --background: #F7F6F2;
+  --foreground: #111113;
+  --surface: #FBFAF8;
+  --surface-card: rgba(255, 255, 255, 0.82);
+  --surface-elevated: rgba(255, 255, 255, 0.94);
+  --surface-muted: rgba(248, 247, 253, 0.75);
+  --surface-sunken: rgba(248, 247, 252, 0.65);
+  --surface-hover: rgba(255, 255, 255, 0.96);
+
+  --muted: #F1F0EC;
+  --muted-foreground: #555866;
+  --subtle-foreground: #777B87;
+
+  --border-subtle: rgba(120, 80, 255, 0.08);
+  --border: rgba(120, 80, 255, 0.12);
+  --border-hover: rgba(120, 80, 255, 0.22);
+  --border-accent: rgba(124, 58, 237, 0.28);
+
+  --accent: #7C3AED;
+  --accent-secondary: #4F7CFF;
+  --accent-cyan: #06B6D4;
+  --accent-foreground: #ffffff;
+  --accent-subtle: rgba(124, 58, 237, 0.08);
+  --success: #10B981;
+  --warning: #F59E0B;
+
+  --focus: #7C3AED;
+
+  --card-shadow: 0 10px 35px rgba(80, 60, 120, 0.06), 0 2px 8px rgba(80, 60, 120, 0.04);
+  --card-shadow-elevated: 0 16px 42px rgba(80, 60, 120, 0.08), 0 4px 12px rgba(80, 60, 120, 0.04);
+  --card-shadow-hover: 0 16px 42px rgba(80, 60, 120, 0.09), 0 4px 12px rgba(80, 60, 120, 0.05);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --glass-shadow: 0 10px 35px rgba(80, 60, 120, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+  --spotlight-color: rgba(124, 58, 237, 0.06);
+  --spotlight-color-cyan: rgba(6, 182, 212, 0.05);
+
+  --grain-opacity: 0.015;
+
+  /* Button Tokens — Light Mode */
+  --button-primary-bg: #111113;
+  --button-primary-fg: #FFFFFF;
+  --button-primary-border: rgba(20, 20, 30, 0.12);
+  --button-primary-hover-bg: #222226;
+  --button-primary-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+
+  --button-secondary-bg: rgba(255, 255, 255, 0.75);
+  --button-secondary-fg: #18181B;
+  --button-secondary-border: rgba(20, 20, 30, 0.12);
+  --button-secondary-hover-bg: #FFFFFF;
+  --button-secondary-hover-border: rgba(124, 58, 237, 0.35);
+  --button-secondary-shadow: 0 2px 8px rgba(20, 15, 40, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-card: var(--surface-card);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-surface-hover: var(--surface-hover);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-border-subtle: var(--border-subtle);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-border-accent: var(--border-accent);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-focus: var(--focus);
+
+  --shadow-card: var(--card-shadow);
+  --shadow-card-elevated: var(--card-shadow-elevated);
+  --shadow-card-hover: var(--card-shadow-hover);
+  --shadow-glass: var(--glass-shadow);
+
+  /* Resolved Typography Tokens */
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-serif: var(--font-serif), "Newsreader", "EB Garamond", Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* -------------------------------------------------------------------------- */
+/* CARD UI SYSTEM — Soft Pastel Glass / Frosted Surface System                */
+/* -------------------------------------------------------------------------- */
+
+.card-pastel-glass {
+  background-color: var(--surface-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--card-shadow);
+  transition: transform 250ms var(--ease-smooth),
+              box-shadow 250ms var(--ease-smooth),
+              border-color 250ms var(--ease-smooth),
+              background-color 250ms var(--ease-smooth);
+}
+
+.card-pastel-glass:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-hover);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* -------------------------------------------------------------------------- */
+/* ABOUT PAGE EDITORIAL CARD SURFACE SYSTEM                                   */
+/* Refined frosted glass surfaces, inner highlights, and restrained accents   */
+/* -------------------------------------------------------------------------- */
+
+.about-card-surface {
+  background-color: rgba(12, 14, 22, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root.light .about-card-surface,
+html.light .about-card-surface,
+.light .about-card-surface {
+  background-color: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(139, 92, 246, 0.10);
+  box-shadow: 0 12px 40px rgba(70, 55, 100, 0.055), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.about-card-surface:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(16, 19, 30, 0.86);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+:root.light .about-card-surface:hover,
+html.light .about-card-surface:hover,
+.light .about-card-surface:hover {
+  transform: translateY(-2px);
+  border-color: rgba(139, 92, 246, 0.18);
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 45px rgba(70, 55, 100, 0.085), inset 0 1px 0 rgba(255, 255, 255, 0.90);
+}
+
+/* Expanding Cards Stability — strictly disables vertical hover jumps */
+.expanding-card-stable,
+.expanding-card-stable:hover,
+:root.light .expanding-card-stable:hover,
+html.light .expanding-card-stable:hover,
+.light .expanding-card-stable:hover {
+  transform: none !important;
+}
+
+/* Subtle Pastel Tint Variations for Cards */
+.card-tint-lavender {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.90) 0%, rgba(250, 246, 255, 0.82) 100%);
+}
+:root:not(.light) .card-tint-lavender,
+html:not(.light) .card-tint-lavender,
+.dark .card-tint-lavender {
+  background: linear-gradient(135deg, rgba(13, 15, 21, 0.85) 0%, rgba(26, 18, 38, 0.80) 100%);
+}
+
+.card-tint-cyan {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.90) 0%, rgba(245, 252, 255, 0.82) 100%);
+}
+:root:not(.light) .card-tint-cyan,
+html:not(.light) .card-tint-cyan,
+.dark .card-tint-cyan {
+  background: linear-gradient(135deg, rgba(13, 15, 21, 0.85) 0%, rgba(14, 28, 38, 0.80) 100%);
+}
+
+.card-tint-blue {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.90) 0%, rgba(246, 249, 255, 0.82) 100%);
+}
+:root:not(.light) .card-tint-blue,
+html:not(.light) .card-tint-blue,
+.dark .card-tint-blue {
+  background: linear-gradient(135deg, rgba(13, 15, 21, 0.85) 0%, rgba(16, 24, 42, 0.80) 100%);
+}
+
+.card-tint-rose {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.90) 0%, rgba(255, 248, 252, 0.82) 100%);
+}
+:root:not(.light) .card-tint-rose,
+html:not(.light) .card-tint-rose,
+.dark .card-tint-rose {
+  background: linear-gradient(135deg, rgba(13, 15, 21, 0.85) 0%, rgba(35, 18, 28, 0.80) 100%);
+}
+
+.card-tint-mint {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.90) 0%, rgba(246, 254, 250, 0.82) 100%);
+}
+:root:not(.light) .card-tint-mint,
+html:not(.light) .card-tint-mint,
+.dark .card-tint-mint {
+  background: linear-gradient(135deg, rgba(13, 15, 21, 0.85) 0%, rgba(14, 32, 26, 0.80) 100%);
+}
+
+/* Atmospheric Noise Texture Overlay */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity: var(--grain-opacity);
+}
+
+/* Top Blur Curtain */
+.top-blur-curtain {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Base Document Styles */
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+}
+
+html.light {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Smooth Theme Transitions */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 200ms var(--ease-smooth),
+              border-color 200ms var(--ease-smooth),
+              color 200ms var(--ease-smooth),
+              box-shadow 200ms var(--ease-smooth) !important;
+}
+
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus Visibility Standards */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Staggered Entrance Animations */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-fade {
+  animation: heroFadeIn 0.65s var(--ease-smooth) both;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+/* Editorial Gradient Heading Highlight — Standard across all page headings */
+.gradient-editorial {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: normal;
+  display: inline-block;
+  padding-right: 0.08em;
+  background-image: linear-gradient(90deg, #7C3AED, #4F7CFF, #06B6D4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+:root:not(.light) .gradient-editorial,
+html:not(.light) .gradient-editorial,
+.dark .gradient-editorial {
+  background-image: linear-gradient(90deg, #C084FC, #60A5FA, #22D3EE);
+}
+
+/* -------------------------------------------------------------------------- */
+/* DESIGN SYSTEM BUTTONS — High Contrast Dual Theme Standards                 */
+/* -------------------------------------------------------------------------- */
+
+.btn-primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-fg);
+  border: 1px solid var(--button-primary-border);
+  box-shadow: var(--button-primary-shadow);
+  transition: background-color 150ms var(--ease-smooth),
+              border-color 150ms var(--ease-smooth),
+              transform 150ms var(--ease-smooth),
+              box-shadow 150ms var(--ease-smooth);
+}
+
+.btn-primary:hover {
+  background-color: var(--button-primary-hover-bg);
+  border-color: var(--button-primary-hover-border);
+  color: var(--button-primary-fg);
+}
+
+.btn-secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-fg);
+  border: 1px solid var(--button-secondary-border);
+  box-shadow: var(--button-secondary-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 150ms var(--ease-smooth),
+              border-color 150ms var(--ease-smooth),
+              transform 150ms var(--ease-smooth),
+              box-shadow 150ms var(--ease-smooth);
+}
+
+.btn-secondary:hover {
+  background-color: var(--button-secondary-hover-bg);
+  border-color: var(--button-secondary-hover-border);
+  color: var(--button-secondary-fg);
+}
+
+/* -------------------------------------------------------------------------- */
+/* GLOBAL RESPONSIVE CONTAINER & EDGE-PROTECTION SYSTEM                       */
+/* Guaranteed safe breathing room across all screen sizes (320px–2560px+)     */
+/* -------------------------------------------------------------------------- */
+
+.site-container {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+
+@media (min-width: 375px) {
+  .site-container {
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+}
+
+@media (min-width: 481px) {
+  .site-container {
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
+  }
+}
+
+@media (min-width: 768px) {
+  .site-container {
+    padding-left: max(28px, env(safe-area-inset-left));
+    padding-right: max(28px, env(safe-area-inset-right));
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: max(32px, env(safe-area-inset-left));
+    padding-right: max(32px, env(safe-area-inset-right));
+  }
+}
+
+/* Heading & Paragraph Bound Protection */
+h1, h2, h3, h4, h5, h6 {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+
+/* =========================================================================== */
+/* macOS DOCK NAVBAR — Glass Reflection & Dock-item Styles                     */
+/* =========================================================================== */
+
+/* The reflection overlay inside the nav reads --mx / --my / --ro CSS vars
+   that are written imperatively via JS (no React state → 60 fps). */
+.navbar-reflection {
+  /* Soft cursor-following radial light */
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.09) 0%,
+    rgba(255, 255, 255, 0.03) 35%,
+    transparent 65%
+  );
+  opacity: var(--ro, 0);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* Dark mode reflection — slightly warmer tint (purple/cyan) */
+.dark .navbar-reflection {
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    rgba(168, 85, 247, 0.07) 0%,
+    rgba(34, 211, 238, 0.03) 40%,
+    transparent 65%
+  );
+}
+
+/* Dock items: transform is written by rAF, keep will-change hint */
+.dock-item {
+  will-change: transform;
+  /* No transition on transform — rAF lerp handles it smoothly */
+  transition: background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
+  transform-origin: center bottom;
+}
+
+/* Reduced-motion: disable magnification and reflections */
+@media (prefers-reduced-motion: reduce) {
+  .dock-item {
+    transform: none !important;
+    will-change: auto;
+  }
+  .navbar-reflection {
+    display: none;
+  }
 }
