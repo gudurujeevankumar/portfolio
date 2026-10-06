@@ -146,7 +146,7 @@ function getSkillIcon(name: string) {
     case 'Git':
       return <SiGit className="text-[#F05032]" />;
     case 'GitHub':
-      return <SiGithub className="text-foreground" />;
+      return <SiGithub className="text-black dark:text-white" />;
     case 'Jira':
       return <SiJira className="text-[#0052CC]" />;
     case 'Figma':
@@ -156,7 +156,7 @@ function getSkillIcon(name: string) {
     case 'Render':
       return <SiRender className="text-[#46E3B7]" />;
     case 'Vercel':
-      return <SiVercel className="text-foreground" />;
+      return <SiVercel className="text-black dark:text-white" />;
     case 'Netlify':
       return <SiNetlify className="text-[#00C7B7]" />;
 

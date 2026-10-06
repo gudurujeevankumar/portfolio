@@ -94,6 +94,50 @@ const techLogos: LogoItem[] = [
   { node: <SiNetlify />, title: 'Netlify', href: 'https://www.netlify.com' },
 ];
 
+function getSkillIcon(name: string) {
+  switch (name) {
+    case 'Python':
+      return <SiPython className="text-[#3776AB]" />;
+    case 'JavaScript':
+      return <SiJavascript className="text-[#F7DF1E]" />;
+    case 'SQL':
+      return <TbSql className="text-cyan-400" />;
+    case 'HTML5':
+      return <SiHtml5 className="text-[#E34F26]" />;
+    case 'CSS3':
+      return <SiCss className="text-[#1572B6]" />;
+    case 'Bootstrap':
+      return <SiBootstrap className="text-[#7952B3]" />;
+    case 'React.js':
+    case 'React Native':
+      return <SiReact className="text-[#61DAFB]" />;
+    case 'GSAP':
+      return <SiGreensock className="text-[#88CE02]" />;
+    case 'Django':
+      return <SiDjango className="text-[#092E20] dark:text-[#44B78B]" />;
+    case 'MySQL':
+      return <SiMysql className="text-[#4479A1]" />;
+    case 'SQLite':
+      return <SiSqlite className="text-[#003B57] dark:text-[#5BA7D1]" />;
+    case 'Git':
+      return <SiGit className="text-[#F05032]" />;
+    case 'GitHub':
+      return <SiGithub className="text-black dark:text-white" />;
+    case 'Jira':
+      return <SiJira className="text-[#0052CC]" />;
+    case 'Figma':
+      return <SiFigma className="text-[#F24E1E]" />;
+    case 'Render':
+      return <SiRender className="text-[#46E3B7]" />;
+    case 'Vercel':
+      return <SiVercel className="text-black dark:text-white" />;
+    case 'Netlify':
+      return <SiNetlify className="text-[#00C7B7]" />;
+    default:
+      return null;
+  }
+}
+
 export default function TechnicalToolkit() {
   return (
     <section
@@ -169,9 +213,10 @@ export default function TechnicalToolkit() {
                   {cat.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 rounded-lg text-xs font-mono text-foreground/90 bg-white/75 dark:bg-white/[0.04] backdrop-blur-md border border-purple-500/10 dark:border-white/10 hover:border-accent/40 hover:text-accent transition-colors shadow-2xs cursor-default"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono text-foreground/90 bg-white/75 dark:bg-white/[0.04] backdrop-blur-md border border-purple-500/10 dark:border-white/10 hover:border-accent/40 hover:text-accent transition-colors shadow-2xs cursor-default"
                     >
-                      {skill}
+                      <span className="text-xs flex-shrink-0">{getSkillIcon(skill)}</span>
+                      <span>{skill}</span>
                     </span>
                   ))}
                 </div>

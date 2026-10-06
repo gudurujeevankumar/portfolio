@@ -7,6 +7,72 @@ import SpotlightCard from '@/components/reactbits/SpotlightCard';
 import BranchedMenu, { BranchedMenuItemParent } from '@/components/ui/BranchedMenu';
 import ECUTelemetry from '@/components/ECUTelemetry';
 import GradientEditorial from '@/components/ui/GradientEditorial';
+import {
+  SiPython,
+  SiMysql,
+  SiJavascript,
+  SiHtml5,
+  SiCss,
+  SiBootstrap,
+  SiRender,
+  SiGit,
+  SiGithub,
+  SiReact,
+  SiDjango,
+  SiSqlite,
+  SiVercel,
+  SiNetlify,
+  SiGreensock,
+  SiJira,
+  SiFigma,
+} from 'react-icons/si';
+import { TbSql } from 'react-icons/tb';
+
+function getTechIcon(name: string) {
+  switch (name) {
+    case 'Python':
+      return <SiPython className="w-3 h-3 text-[#3776AB]" />;
+    case 'JavaScript':
+      return <SiJavascript className="w-3 h-3 text-[#F7DF1E]" />;
+    case 'SQL':
+      return <TbSql className="w-3 h-3 text-cyan-400" />;
+    case 'HTML5':
+      return <SiHtml5 className="w-3 h-3 text-[#E34F26]" />;
+    case 'CSS3':
+    case 'CSS':
+      return <SiCss className="w-3 h-3 text-[#1572B6]" />;
+    case 'Bootstrap':
+      return <SiBootstrap className="w-3 h-3 text-[#7952B3]" />;
+    case 'React.js':
+    case 'React Native':
+    case 'React':
+      return <SiReact className="w-3 h-3 text-[#61DAFB]" />;
+    case 'GSAP':
+      return <SiGreensock className="w-3 h-3 text-[#88CE02]" />;
+    case 'Django':
+      return <SiDjango className="w-3 h-3 text-[#092E20] dark:text-[#44B78B]" />;
+    case 'MySQL':
+      return <SiMysql className="w-3 h-3 text-[#4479A1]" />;
+    case 'SQLite':
+      return <SiSqlite className="w-3 h-3 text-[#003B57] dark:text-[#5BA7D1]" />;
+    case 'Git':
+      return <SiGit className="w-3 h-3 text-[#F05032]" />;
+    case 'GitHub':
+      return <SiGithub className="w-3 h-3 text-black dark:text-white" />;
+    case 'Jira':
+      return <SiJira className="w-3 h-3 text-[#0052CC]" />;
+    case 'Figma':
+      return <SiFigma className="w-3 h-3 text-[#F24E1E]" />;
+    case 'Render':
+      return <SiRender className="w-3 h-3 text-[#46E3B7]" />;
+    case 'Vercel':
+      return <SiVercel className="w-3 h-3 text-black dark:text-white" />;
+    case 'Netlify':
+      return <SiNetlify className="w-3 h-3 text-[#00C7B7]" />;
+    default:
+      return null;
+  }
+}
 
 export default function SelectedWork() {
   const { projects } = portfolioData;
@@ -15,7 +81,6 @@ export default function SelectedWork() {
   const ecuAnalytics = projects.find((p) => p.slug === 'ecu-fuel-prediction' || p.id === 'ecu-fuel-prediction');
   const eapcetPredictor = projects.find((p) => p.slug === 'ap-eapcet-predictor' || p.id === 'ap-eapcet-predictor');
   const icetPredictor = projects.find((p) => p.slug === 'ap-icet-predictor' || p.id === 'ap-icet-predictor');
-  const studentPortal = projects.find((p) => p.slug === 'student-portal' || p.id === 'student-portal');
   const vidVault = projects.find((p) => p.slug === 'vid-vault' || p.id === 'vid-vault');
   const skyscannerPicker = projects.find((p) => p.slug === 'skyscanner-travel-date-picker' || p.id === 'skyscanner-travel-date-picker');
   const djangoCrud = projects.find((p) => p.slug === 'django-crud-portal' || p.id === 'django-crud-portal');
@@ -59,11 +124,6 @@ export default function SelectedWork() {
             value: 'project-ap-icet-predictor',
             label: 'AP ICET Predictor',
             badge: 'React & Python',
-          },
-          {
-            value: 'project-student-portal',
-            label: 'Student Academic Portal',
-            badge: 'React & Django',
           },
           {
             value: 'project-vid-vault',
@@ -321,9 +381,10 @@ export default function SelectedWork() {
                     {ecuAnalytics.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
                       >
-                        {tech}
+                        <span className="flex-shrink-0">{getTechIcon(tech)}</span>
+                        <span>{tech}</span>
                       </span>
                     ))}
                   </div>
@@ -432,9 +493,10 @@ export default function SelectedWork() {
                     {eapcetPredictor.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
                       >
-                        {tech}
+                        <span className="flex-shrink-0">{getTechIcon(tech)}</span>
+                        <span>{tech}</span>
                       </span>
                     ))}
                   </div>
@@ -532,9 +594,10 @@ export default function SelectedWork() {
                     {icetPredictor.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
                       >
-                        {tech}
+                        <span className="flex-shrink-0">{getTechIcon(tech)}</span>
+                        <span>{tech}</span>
                       </span>
                     ))}
                   </div>
@@ -571,97 +634,6 @@ export default function SelectedWork() {
               </div>
             )}
 
-            {/* 4. Student Academic Portal */}
-            {studentPortal && (
-              <div
-                id="project-student-portal"
-                data-project-card
-                className="scroll-mt-28"
-              >
-                <SpotlightCard
-                  className="p-6 sm:p-8 space-y-6 group"
-                  spotlightColor="var(--spotlight-color)"
-                >
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-surface text-muted-foreground border border-border-subtle font-medium">
-                      Full-Stack Academic Platform
-                    </span>
-                    <span className="text-xs font-mono text-subtle-foreground ml-auto">
-                      {studentPortal.year}
-                    </span>
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <h4 className="text-2xl sm:text-3xl font-semibold tracking-tight text-foreground font-sans">
-                      {studentPortal.title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-accent-cyan font-mono font-medium">
-                      {studentPortal.subtitle}
-                    </p>
-                  </div>
-
-                  <p className="text-sm text-muted-foreground font-sans leading-relaxed">
-                    {studentPortal.description}
-                  </p>
-
-                  {/* Core Features Specs */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono text-center">
-                    <div className="p-3 rounded-lg bg-surface border border-border-subtle">
-                      <span className="text-[10px] text-muted-foreground uppercase block">Auth</span>
-                      <span className="text-foreground font-semibold">JWT Role Security</span>
-                    </div>
-                    <div className="p-3 rounded-lg bg-surface border border-border-subtle">
-                      <span className="text-[10px] text-muted-foreground uppercase block">Regulations</span>
-                      <span className="text-foreground font-semibold">R19 / R20 / R23</span>
-                    </div>
-                    <div className="p-3 rounded-lg bg-surface border border-border-subtle">
-                      <span className="text-[10px] text-muted-foreground uppercase block">Calculator</span>
-                      <span className="text-foreground font-semibold">Live Attendance %</span>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {studentPortal.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-border-subtle">
-                    <Link
-                      href={`/work/${studentPortal.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-accent hover:underline"
-                    >
-                      <span>Case Study →</span>
-                    </Link>
-                    {studentPortal.liveUrl && (
-                      <a
-                        href={studentPortal.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground hover:text-accent transition-colors ml-auto"
-                      >
-                        <span>Live Portal ↗</span>
-                      </a>
-                    )}
-                    {studentPortal.githubUrl && (
-                      <a
-                        href={studentPortal.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <span>GitHub</span>
-                      </a>
-                    )}
-                  </div>
-                </SpotlightCard>
-              </div>
-            )}
 
             {/* 5. Video Streaming Platform (Vid Vault) */}
             {vidVault && (
@@ -708,9 +680,10 @@ export default function SelectedWork() {
                     {vidVault.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
                       >
-                        {tech}
+                        <span className="flex-shrink-0">{getTechIcon(tech)}</span>
+                        <span>{tech}</span>
                       </span>
                     ))}
                   </div>
@@ -784,9 +757,10 @@ export default function SelectedWork() {
                     {djangoCrud.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
                       >
-                        {tech}
+                        <span className="flex-shrink-0">{getTechIcon(tech)}</span>
+                        <span>{tech}</span>
                       </span>
                     ))}
                   </div>
@@ -860,9 +834,10 @@ export default function SelectedWork() {
                     {taskManager.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
                       >
-                        {tech}
+                        <span className="flex-shrink-0">{getTechIcon(tech)}</span>
+                        <span>{tech}</span>
                       </span>
                     ))}
                   </div>
@@ -978,9 +953,10 @@ export default function SelectedWork() {
                     {skyscannerPicker.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
                       >
-                        {tech}
+                        <span className="flex-shrink-0">{getTechIcon(tech)}</span>
+                        <span>{tech}</span>
                       </span>
                     ))}
                   </div>
@@ -1054,9 +1030,10 @@ export default function SelectedWork() {
                     {productCatalog.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
                       >
-                        {tech}
+                        <span className="flex-shrink-0">{getTechIcon(tech)}</span>
+                        <span>{tech}</span>
                       </span>
                     ))}
                   </div>
@@ -1142,9 +1119,10 @@ export default function SelectedWork() {
                     {appleClone.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
                       >
-                        {tech}
+                        <span className="flex-shrink-0">{getTechIcon(tech)}</span>
+                        <span>{tech}</span>
                       </span>
                     ))}
                   </div>
@@ -1218,9 +1196,10 @@ export default function SelectedWork() {
                     {jioClone.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono text-muted-foreground bg-surface border border-border-subtle"
                       >
-                        {tech}
+                        <span className="flex-shrink-0">{getTechIcon(tech)}</span>
+                        <span>{tech}</span>
                       </span>
                     ))}
                   </div>

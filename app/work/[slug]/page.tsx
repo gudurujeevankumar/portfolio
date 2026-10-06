@@ -4,6 +4,72 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { portfolioData } from '@/data/portfolio';
 import SpotlightCard from '@/components/reactbits/SpotlightCard';
+import {
+  SiPython,
+  SiMysql,
+  SiJavascript,
+  SiHtml5,
+  SiCss,
+  SiBootstrap,
+  SiRender,
+  SiGit,
+  SiGithub,
+  SiReact,
+  SiDjango,
+  SiSqlite,
+  SiVercel,
+  SiNetlify,
+  SiGreensock,
+  SiJira,
+  SiFigma,
+} from 'react-icons/si';
+import { TbSql } from 'react-icons/tb';
+
+function getTechIcon(name: string) {
+  switch (name) {
+    case 'Python':
+      return <SiPython className="w-3.5 h-3.5 text-[#3776AB]" />;
+    case 'JavaScript':
+      return <SiJavascript className="w-3.5 h-3.5 text-[#F7DF1E]" />;
+    case 'SQL':
+      return <TbSql className="w-3.5 h-3.5 text-cyan-400" />;
+    case 'HTML5':
+      return <SiHtml5 className="w-3.5 h-3.5 text-[#E34F26]" />;
+    case 'CSS3':
+    case 'CSS':
+      return <SiCss className="w-3.5 h-3.5 text-[#1572B6]" />;
+    case 'Bootstrap':
+      return <SiBootstrap className="w-3.5 h-3.5 text-[#7952B3]" />;
+    case 'React.js':
+    case 'React Native':
+    case 'React':
+      return <SiReact className="w-3.5 h-3.5 text-[#61DAFB]" />;
+    case 'GSAP':
+      return <SiGreensock className="w-3.5 h-3.5 text-[#88CE02]" />;
+    case 'Django':
+      return <SiDjango className="w-3.5 h-3.5 text-[#092E20] dark:text-[#44B78B]" />;
+    case 'MySQL':
+      return <SiMysql className="w-3.5 h-3.5 text-[#4479A1]" />;
+    case 'SQLite':
+      return <SiSqlite className="w-3.5 h-3.5 text-[#003B57] dark:text-[#5BA7D1]" />;
+    case 'Git':
+      return <SiGit className="w-3.5 h-3.5 text-[#F05032]" />;
+    case 'GitHub':
+      return <SiGithub className="w-3.5 h-3.5 text-black dark:text-white" />;
+    case 'Jira':
+      return <SiJira className="w-3.5 h-3.5 text-[#0052CC]" />;
+    case 'Figma':
+      return <SiFigma className="w-3.5 h-3.5 text-[#F24E1E]" />;
+    case 'Render':
+      return <SiRender className="w-3.5 h-3.5 text-[#46E3B7]" />;
+    case 'Vercel':
+      return <SiVercel className="w-3.5 h-3.5 text-black dark:text-white" />;
+    case 'Netlify':
+      return <SiNetlify className="w-3.5 h-3.5 text-[#00C7B7]" />;
+    default:
+      return null;
+  }
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -128,9 +194,10 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 rounded-md text-xs font-mono text-foreground/90 bg-surface border border-border-subtle hover:border-accent/40 transition-colors shadow-2xs"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono text-foreground/90 bg-surface border border-border-subtle hover:border-accent/40 transition-colors shadow-2xs"
               >
-                {tech}
+                <span className="flex-shrink-0">{getTechIcon(tech)}</span>
+                <span>{tech}</span>
               </span>
             ))}
           </div>
@@ -293,9 +360,10 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                   {cat.technologies.map((t) => (
                     <span
                       key={t}
-                      className="px-2.5 py-1 rounded-md text-xs font-mono bg-surface-sunken text-foreground/90 border border-border-subtle"
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono bg-surface-sunken text-foreground/90 border border-border-subtle"
                     >
-                      {t}
+                      <span className="flex-shrink-0">{getTechIcon(t)}</span>
+                      <span>{t}</span>
                     </span>
                   ))}
                 </div>

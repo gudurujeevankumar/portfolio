@@ -3,7 +3,27 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { FiLock, FiArrowUpRight, FiMaximize2, FiRefreshCw } from 'react-icons/fi';
-import { SiGithub } from 'react-icons/si';
+import {
+  SiGithub,
+  SiHtml5,
+  SiCss,
+  SiNetlify,
+  SiJavascript,
+  SiReact,
+  SiPython,
+  SiDjango,
+} from 'react-icons/si';
+
+function getPreviewTechIcon(name: string) {
+  if (name.includes('HTML')) return <SiHtml5 className="w-3 h-3 text-[#E34F26]" />;
+  if (name.includes('CSS')) return <SiCss className="w-3 h-3 text-[#1572B6]" />;
+  if (name.includes('Netlify')) return <SiNetlify className="w-3 h-3 text-[#00C7B7]" />;
+  if (name.includes('JavaScript')) return <SiJavascript className="w-3 h-3 text-[#F7DF1E]" />;
+  if (name.includes('React')) return <SiReact className="w-3 h-3 text-[#61DAFB]" />;
+  if (name.includes('Python')) return <SiPython className="w-3 h-3 text-[#3776AB]" />;
+  if (name.includes('Django')) return <SiDjango className="w-3 h-3 text-[#092E20] dark:text-[#44B78B]" />;
+  return null;
+}
 
 // Desktop viewport width the embedded site is designed for
 const DESKTOP_VIEWPORT_WIDTH = 1280;
@@ -193,11 +213,12 @@ export default function ProjectPreview({
           {technologies.map((tech) => (
             <span
               key={tech}
-              className={`px-2 py-0.5 rounded-md bg-surface border border-border-subtle ${
+              className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-surface border border-border-subtle ${
                 tech.includes('Netlify') ? 'text-accent font-semibold' : 'text-foreground'
               }`}
             >
-              {tech}
+              <span className="flex-shrink-0">{getPreviewTechIcon(tech)}</span>
+              <span>{tech}</span>
             </span>
           ))}
         </div>
