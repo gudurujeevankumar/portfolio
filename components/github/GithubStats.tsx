@@ -119,13 +119,13 @@ const VERIFIED_REPOSITORIES: Record<string, RepoData> = {
       1, 0, 1, 0,
     ],
   },
-  'student-portal': {
-    name: 'student-portal',
-    repoKey: 'student-portal',
-    fullName: 'gudurujeevankumar/student-portal',
+  'Video_Hosting_Platform': {
+    name: 'Video_Hosting_Platform',
+    repoKey: 'Video_Hosting_Platform',
+    fullName: 'boyamounika9/Video_Hosting_Platform',
     description:
-      'Comprehensive student academic management portal: attendance tracking, CGPA calculation, semester grade evaluation, and JWT-authenticated dashboards.',
-    htmlUrl: 'https://github.com/gudurujeevankumar/student-portal',
+      'Collaborative full-stack video hosting and streaming platform built with Django, SQLite, and custom media upload pipelines.',
+    htmlUrl: 'https://github.com/boyamounika9/Video_Hosting_Platform',
     stars: 1,
     forks: 0,
     watchers: 1,
@@ -133,9 +133,9 @@ const VERIFIED_REPOSITORIES: Record<string, RepoData> = {
     defaultBranch: 'main',
     pushedAt: '2026-05-18T10:15:20Z',
     languages: [
-      { name: 'JavaScript', pct: 54.2 },
-      { name: 'Python / Django', pct: 30.1 },
-      { name: 'CSS', pct: 15.7 },
+      { name: 'Python', pct: 64.5 },
+      { name: 'HTML', pct: 22.3 },
+      { name: 'CSS', pct: 13.2 },
     ],
     weeklyActivity: [
       0, 1, 2, 0, 1, 3, 2, 0, 1, 2, 4, 1, 0, 2, 3, 1, 0, 2, 1, 0, 1, 3, 2, 0,

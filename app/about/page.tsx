@@ -25,8 +25,27 @@ import {
   HiOutlineArrowTrendingUp,
   HiOutlineTrophy,
   HiOutlineSparkles,
+  HiOutlineUsers,
+  HiOutlineUserGroup,
+  HiOutlineMicrophone,
+  HiOutlineShieldCheck,
+  HiOutlineLightBulb,
+  HiOutlineArrowsRightLeft,
+  HiOutlineCpuChip,
+  HiOutlineClipboardDocumentCheck,
+  HiOutlineCubeTransparent,
+  HiOutlineCommandLine,
 } from 'react-icons/hi2';
-import { SiYoutube } from 'react-icons/si';
+import {
+  SiHtml5,
+  SiNetlify,
+  SiReact,
+  SiMysql,
+  SiJira,
+  SiGit,
+  SiYoutube,
+} from 'react-icons/si';
+import { TbBrandReactNative } from 'react-icons/tb';
 import { FiArrowUpRight, FiPlay } from 'react-icons/fi';
 
 export const metadata: Metadata = {
@@ -53,6 +72,33 @@ function getMilestoneIcon(step: string) {
     default:
       return <HiOutlineCodeBracket className="w-5 h-5 text-accent" />;
   }
+}
+
+/**
+ * Returns matching icon for personal journey milestone tags
+ */
+function getMilestoneTagIcon(tag: string) {
+  const t = tag.toLowerCase();
+  if (t.includes('html')) return <SiHtml5 className="w-3 h-3 text-[#E34F26] shrink-0" />;
+  if (t.includes('netlify')) return <SiNetlify className="w-3 h-3 text-[#00C7B7] shrink-0" />;
+  if (t.includes('component')) return <SiReact className="w-3 h-3 text-[#61DAFB] shrink-0" />;
+  if (t.includes('mobile')) return <TbBrandReactNative className="w-3 h-3 text-[#61DAFB] shrink-0" />;
+  if (t.includes('database')) return <SiMysql className="w-3 h-3 text-[#4479A1] shrink-0" />;
+  if (t.includes('sprint') || t.includes('jira')) return <SiJira className="w-3 h-3 text-[#0052CC] shrink-0" />;
+  if (t.includes('git') || t.includes('workflow')) return <SiGit className="w-3 h-3 text-[#F05032] shrink-0" />;
+  if (t.includes('first web')) return <HiOutlineGlobeAlt className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('learn')) return <HiOutlineLightBulb className="w-3 h-3 text-amber-400 shrink-0" />;
+  if (t.includes('frontend to backend')) return <HiOutlineArrowsRightLeft className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('full-stack') || t.includes('systems')) return <HiOutlineCpuChip className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('client')) return <HiOutlineClipboardDocumentCheck className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('500+')) return <HiOutlineUsers className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('3-member')) return <HiOutlineUserGroup className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('speaking') || t.includes('stage')) return <HiOutlineMicrophone className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('pressure')) return <HiOutlineShieldCheck className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('continuous')) return <HiOutlineArrowTrendingUp className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('ownership')) return <HiOutlineCubeTransparent className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('judgment')) return <HiOutlineCommandLine className="w-3 h-3 text-accent shrink-0" />;
+  return <HiOutlineSparkles className="w-3 h-3 text-accent shrink-0" />;
 }
 
 export default function AboutPage() {
@@ -607,9 +653,10 @@ export default function AboutPage() {
                   {milestone.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-md bg-surface text-[11px] font-mono text-foreground border border-border-subtle shadow-2xs"
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface text-[11px] font-mono text-foreground border border-border-subtle shadow-2xs"
                     >
-                      {tag}
+                      {getMilestoneTagIcon(tag)}
+                      <span>{tag}</span>
                     </span>
                   ))}
                 </div>

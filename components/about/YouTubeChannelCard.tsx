@@ -3,10 +3,40 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { FiExternalLink } from 'react-icons/fi';
-import { SiYoutube } from 'react-icons/si';
+import {
+  SiYoutube,
+  SiHtml5,
+  SiCss,
+  SiJavascript,
+  SiReact,
+  SiGit,
+  SiGithub,
+} from 'react-icons/si';
+import { VscVscode } from 'react-icons/vsc';
+import { TbBrandReactNative } from 'react-icons/tb';
+import {
+  HiOutlineAcademicCap,
+  HiOutlineFolder,
+  HiOutlineCodeBracket,
+} from 'react-icons/hi2';
 import { youtubeChannel, featuredYouTubeVideos, YouTubeVideo } from '@/data/youtube';
 import YouTubeVideoCard from './YouTubeVideoCard';
 import YouTubeVideoModal from './YouTubeVideoModal';
+
+function getTopicIcon(topic: string) {
+  const t = topic.toLowerCase();
+  if (t === 'html') return <SiHtml5 className="w-3 h-3 text-[#E34F26] shrink-0" />;
+  if (t === 'css') return <SiCss className="w-3 h-3 text-[#1572B6] shrink-0" />;
+  if (t === 'javascript' || t === 'js') return <SiJavascript className="w-3 h-3 text-[#F7DF1E] shrink-0" />;
+  if (t === 'react native') return <TbBrandReactNative className="w-3 h-3 text-[#61DAFB] shrink-0" />;
+  if (t === 'react') return <SiReact className="w-3 h-3 text-[#61DAFB] shrink-0" />;
+  if (t === 'vs code') return <VscVscode className="w-3 h-3 text-[#007ACC] shrink-0" />;
+  if (t.includes('git')) return <SiGit className="w-3 h-3 text-[#F05032] shrink-0" />;
+  if (t.includes('guidance') || t.includes('ap eapcet') || t.includes('ap icet'))
+    return <HiOutlineAcademicCap className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('project')) return <HiOutlineFolder className="w-3 h-3 text-accent shrink-0" />;
+  return <HiOutlineCodeBracket className="w-3 h-3 text-accent shrink-0" />;
+}
 
 export default function YouTubeChannelCard() {
   const [selectedVideo, setSelectedVideo] = useState<YouTubeVideo | null>(null);
@@ -148,9 +178,10 @@ export default function YouTubeChannelCard() {
           {youtubeChannel.topics.map((topic) => (
             <span
               key={topic}
-              className="px-2.5 py-1 rounded-md bg-surface border border-border-subtle text-[11px] font-mono text-foreground/80 hover:text-accent hover:border-accent/40 transition-colors select-none"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface border border-border-subtle text-[11px] font-mono text-foreground/80 hover:text-accent hover:border-accent/40 transition-colors select-none"
             >
-              {topic}
+              {getTopicIcon(topic)}
+              <span>{topic}</span>
             </span>
           ))}
         </div>

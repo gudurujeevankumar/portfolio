@@ -3,7 +3,35 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { FiPlay } from 'react-icons/fi';
+import {
+  SiHtml5,
+  SiCss,
+  SiJavascript,
+  SiReact,
+  SiPython,
+  SiDjango,
+  SiGit,
+  SiGithub,
+  SiFigma,
+} from 'react-icons/si';
+import { TbBrandReactNative } from 'react-icons/tb';
+import { HiOutlineCodeBracket, HiOutlineDevicePhoneMobile } from 'react-icons/hi2';
 import { YouTubeVideo } from '@/data/youtube';
+
+function getTechIcon(name: string) {
+  const n = name.toLowerCase();
+  if (n.includes('html')) return <SiHtml5 className="w-2.5 h-2.5 text-[#E34F26] shrink-0" />;
+  if (n.includes('css')) return <SiCss className="w-2.5 h-2.5 text-[#1572B6] shrink-0" />;
+  if (n.includes('javascript') || n === 'js') return <SiJavascript className="w-2.5 h-2.5 text-[#F7DF1E] shrink-0" />;
+  if (n.includes('native')) return <TbBrandReactNative className="w-2.5 h-2.5 text-[#61DAFB] shrink-0" />;
+  if (n.includes('react')) return <SiReact className="w-2.5 h-2.5 text-[#61DAFB] shrink-0" />;
+  if (n.includes('django')) return <SiDjango className="w-2.5 h-2.5 text-[#092E20] dark:text-[#44B78B] shrink-0" />;
+  if (n.includes('python')) return <SiPython className="w-2.5 h-2.5 text-[#3776AB] shrink-0" />;
+  if (n.includes('git')) return <SiGit className="w-2.5 h-2.5 text-[#F05032] shrink-0" />;
+  if (n.includes('figma')) return <SiFigma className="w-2.5 h-2.5 text-[#F24E1E] shrink-0" />;
+  if (n.includes('mobile')) return <HiOutlineDevicePhoneMobile className="w-2.5 h-2.5 text-accent shrink-0" />;
+  return <HiOutlineCodeBracket className="w-2.5 h-2.5 text-accent shrink-0" />;
+}
 
 interface YouTubeVideoCardProps {
   video: YouTubeVideo;
@@ -88,15 +116,16 @@ export default function YouTubeVideoCard({
       </div>
 
       {/* ================================================================== */}
-      {/* 03 — TECH TAGS                                                     */}
+      {/* 03 — TECH TAGS WITH ICONS                                          */}
       {/* ================================================================== */}
       <div className="flex flex-wrap items-center gap-1 pt-0.5">
         {video.technologies.slice(0, 3).map((tech) => (
           <span
             key={tech}
-            className="px-1.5 py-0.2 rounded bg-surface border border-border-subtle text-[9px] font-mono text-muted-foreground"
+            className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface border border-border-subtle text-[9px] font-mono text-muted-foreground"
           >
-            {tech}
+            {getTechIcon(tech)}
+            <span>{tech}</span>
           </span>
         ))}
       </div>

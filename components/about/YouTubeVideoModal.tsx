@@ -2,8 +2,43 @@
 
 import React, { useEffect } from 'react';
 import { FiX, FiExternalLink } from 'react-icons/fi';
-import { SiYoutube } from 'react-icons/si';
+import {
+  SiYoutube,
+  SiPython,
+  SiJavascript,
+  SiHtml5,
+  SiCss,
+  SiBootstrap,
+  SiReact,
+  SiDjango,
+  SiMysql,
+  SiSqlite,
+  SiGit,
+  SiGithub,
+  SiRender,
+  SiVercel,
+  SiNetlify,
+} from 'react-icons/si';
+import { TbSql } from 'react-icons/tb';
 import { YouTubeVideo } from '@/data/youtube';
+
+function getTechIcon(name: string) {
+  if (name.includes('Python')) return <SiPython className="w-2.5 h-2.5 text-[#3776AB]" />;
+  if (name.includes('JavaScript')) return <SiJavascript className="w-2.5 h-2.5 text-[#F7DF1E]" />;
+  if (name.includes('SQL')) return <TbSql className="w-2.5 h-2.5 text-cyan-400" />;
+  if (name.includes('HTML')) return <SiHtml5 className="w-2.5 h-2.5 text-[#E34F26]" />;
+  if (name.includes('CSS')) return <SiCss className="w-2.5 h-2.5 text-[#1572B6]" />;
+  if (name.includes('Bootstrap')) return <SiBootstrap className="w-2.5 h-2.5 text-[#7952B3]" />;
+  if (name.includes('React')) return <SiReact className="w-2.5 h-2.5 text-[#61DAFB]" />;
+  if (name.includes('Django')) return <SiDjango className="w-2.5 h-2.5 text-[#092E20] dark:text-[#44B78B]" />;
+  if (name.includes('MySQL')) return <SiMysql className="w-2.5 h-2.5 text-[#4479A1]" />;
+  if (name.includes('SQLite')) return <SiSqlite className="w-2.5 h-2.5 text-[#003B57] dark:text-[#5BA7D1]" />;
+  if (name.includes('Git')) return <SiGit className="w-2.5 h-2.5 text-[#F05032]" />;
+  if (name.includes('Render')) return <SiRender className="w-2.5 h-2.5 text-[#46E3B7]" />;
+  if (name.includes('Vercel')) return <SiVercel className="w-2.5 h-2.5 text-foreground" />;
+  if (name.includes('Netlify')) return <SiNetlify className="w-2.5 h-2.5 text-[#00C7B7]" />;
+  return null;
+}
 
 interface YouTubeVideoModalProps {
   video: YouTubeVideo | null;
@@ -95,8 +130,9 @@ export default function YouTubeVideoModal({ video, onClose }: YouTubeVideoModalP
 
           <div className="flex flex-wrap items-center gap-1.5 text-[10px]">
             {video.technologies.map((t) => (
-              <span key={t} className="px-2 py-0.5 rounded bg-white/5 border border-white/10">
-                {t}
+              <span key={t} className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-white/5 border border-white/10">
+                <span className="flex-shrink-0">{getTechIcon(t)}</span>
+                <span>{t}</span>
               </span>
             ))}
           </div>
