@@ -12,22 +12,23 @@ import {
 import {
   SiPython,
   SiJavascript,
+  SiHtml5,
+  SiCss,
   SiReact,
   SiDjango,
-  SiNodedotjs,
   SiMysql,
-  SiPostgresql,
   SiSqlite,
   SiGit,
   SiGithub,
-  SiTailwindcss,
   SiBootstrap,
+  SiGreensock,
+  SiJira,
+  SiFigma,
   SiVercel,
   SiRender,
   SiNetlify,
-  SiPostman,
 } from 'react-icons/si';
-import { TbSql } from 'react-icons/tb';
+import { TbBrandReactNative, TbSql } from 'react-icons/tb';
 
 const WORKFLOW_STEPS = [
   {
@@ -79,36 +80,37 @@ const TOOLSET_GROUPS = [
       { name: 'Python', icon: SiPython, color: '#3776AB' },
       { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
       { name: 'SQL', icon: TbSql, color: '#00758F' },
+      { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
+      { name: 'CSS3', icon: SiCss, color: '#1572B6' },
     ],
   },
   {
-    category: 'Frontend & Mobile',
+    category: 'Frontend & UI',
     tools: [
       { name: 'React.js', icon: SiReact, color: '#61DAFB' },
-      { name: 'React Native', icon: SiReact, color: '#61DAFB' },
-      { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
+      { name: 'React Native', icon: TbBrandReactNative, color: '#61DAFB' },
       { name: 'Bootstrap', icon: SiBootstrap, color: '#7952B3' },
+      { name: 'GSAP', icon: SiGreensock, color: '#88CE02' },
+      { name: 'Figma', icon: SiFigma, color: '#F24E1E' },
     ],
   },
   {
     category: 'Backend & Data',
     tools: [
-      { name: 'Django', icon: SiDjango, color: '#092E20' },
-      { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
+      { name: 'Django', icon: SiDjango, color: '#092E20', className: 'text-[#092E20] dark:text-[#44B78B]' },
       { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
-      { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
-      { name: 'SQLite', icon: SiSqlite, color: '#003B57' },
+      { name: 'SQLite', icon: SiSqlite, color: '#003B57', className: 'text-[#003B57] dark:text-[#5BA7D1]' },
     ],
   },
   {
     category: 'Cloud & Tooling',
     tools: [
       { name: 'Git', icon: SiGit, color: '#F05032' },
-      { name: 'GitHub', icon: SiGithub, color: '#ffffff' },
-      { name: 'Vercel', icon: SiVercel, color: '#ffffff' },
+      { name: 'GitHub', icon: SiGithub, className: 'text-black dark:text-white' },
+      { name: 'Jira', icon: SiJira, color: '#0052CC' },
       { name: 'Render', icon: SiRender, color: '#46E3B7' },
+      { name: 'Vercel', icon: SiVercel, className: 'text-black dark:text-white' },
       { name: 'Netlify', icon: SiNetlify, color: '#00C7B7' },
-      { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
     ],
   },
 ];
@@ -255,8 +257,8 @@ export default function EngineeringWorkflowSection() {
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] hover:border-purple-500/40 text-foreground/90 transition-all text-xs font-mono group cursor-default shadow-2xs hover:-translate-y-0.5"
                     >
                       <Icon
-                        className="w-3.5 h-3.5 shrink-0 transition-transform group-hover:scale-110"
-                        style={{ color: t.color }}
+                        className={`w-3.5 h-3.5 shrink-0 transition-transform group-hover:scale-110 ${t.className || ''}`}
+                        style={t.color ? { color: t.color } : undefined}
                       />
                       <span>{t.name}</span>
                     </div>

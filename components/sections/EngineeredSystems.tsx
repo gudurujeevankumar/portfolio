@@ -12,8 +12,7 @@ import {
   SiCss,
   SiGit,
   SiReact,
-  SiNodedotjs,
-  SiTailwindcss,
+  SiSqlite,
   SiVercel,
   SiDjango,
 } from 'react-icons/si';
@@ -175,7 +174,7 @@ export default function EngineeredSystems() {
                 <SiCss className="w-3.5 h-3.5 text-[#1572B6]" /> CSS3
               </span>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono bg-white/75 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] text-foreground/80 shadow-2xs">
-                <SiVercel className="w-3.5 h-3.5 text-foreground/80 dark:text-white" /> Vercel
+                <SiVercel className="w-3.5 h-3.5 text-black dark:text-white" /> Vercel
               </span>
             </div>
           </div>
@@ -224,13 +223,13 @@ export default function EngineeredSystems() {
                 <SiReact className="w-3.5 h-3.5 text-[#61DAFB]" /> React.js
               </span>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono bg-white/75 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] text-foreground/80 shadow-2xs">
-                <SiNodedotjs className="w-3.5 h-3.5 text-[#339933]" /> Node.js
+                <SiPython className="w-3.5 h-3.5 text-[#3776AB]" /> Python
               </span>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono bg-white/75 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] text-foreground/80 shadow-2xs">
-                <SiMysql className="w-3.5 h-3.5 text-[#4479A1]" /> MySQL
+                <SiJavascript className="w-3.5 h-3.5 text-[#F7DF1E]" /> JavaScript
               </span>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono bg-white/75 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] text-foreground/80 shadow-2xs">
-                <SiTailwindcss className="w-3.5 h-3.5 text-[#06B6D4]" /> Tailwind CSS
+                <SiVercel className="w-3.5 h-3.5 text-black dark:text-white" /> Vercel
               </span>
             </div>
           </div>
@@ -249,53 +248,53 @@ export default function EngineeredSystems() {
           </div>
         </div>
 
-        {/* Project 4: Student Academic Portal */}
+        {/* Project 4: Vid Vault */}
         <div className="md:col-span-2 lg:col-span-1 rounded-2xl border border-purple-500/10 dark:border-white/10 hover:border-purple-500/30 bg-white/80 dark:bg-surface-card/85 backdrop-blur-xl p-5 sm:p-7 lg:p-8 shadow-[0_10px_35px_rgba(80,60,120,0.05),0_2px_8px_rgba(80,60,120,0.03)] hover:shadow-[0_16px_42px_rgba(80,60,120,0.08),0_4px_12px_rgba(80,60,120,0.04)] hover:-translate-y-1 flex flex-col justify-between group transition-all duration-200 card-tint-lavender">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <span className="px-3 py-1 rounded-full text-xs font-mono bg-purple-500/10 dark:bg-purple-500/15 text-purple-700 dark:text-purple-300 border border-purple-500/20 shadow-2xs">
-                Full-Stack System
+                Django Full Stack
               </span>
               <span className="text-xs font-mono text-muted-foreground">2024</span>
             </div>
 
             <div className="space-y-1">
               <h3 className="text-xl sm:text-2xl font-bold text-foreground font-sans group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-                Student Academic Portal
+                Vid Vault
               </h3>
               <p className="text-xs font-mono text-purple-600 dark:text-purple-300 font-medium">
-                Academic Resource &amp; Governance Hub
+                Video Hosting &amp; Streaming Platform
               </p>
             </div>
 
             <p className="text-sm text-muted-foreground font-sans leading-relaxed">
-              Unified academic platform with university regulation filtering (R20/R23), dynamic attendance
-              target calculator, and past question paper archive.
+              Full-stack video hosting platform with user authentication, direct media upload processing,
+              streaming playback player, and creator profile feeds.
             </p>
 
             {/* Tech Badges */}
             <div className="flex flex-wrap items-center gap-1.5 pt-1">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono bg-white/75 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] text-foreground/80 shadow-2xs">
-                <SiReact className="w-3.5 h-3.5 text-[#61DAFB]" /> React.js
-              </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono bg-white/75 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] text-foreground/80 shadow-2xs">
-                <SiDjango className="w-3.5 h-3.5 text-[#092E20]" /> Django
-              </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono bg-white/75 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] text-foreground/80 shadow-2xs">
                 <SiPython className="w-3.5 h-3.5 text-[#3776AB]" /> Python
               </span>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono bg-white/75 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] text-foreground/80 shadow-2xs">
-                <SiMysql className="w-3.5 h-3.5 text-[#4479A1]" /> MySQL
+                <SiDjango className="w-3.5 h-3.5 text-[#092E20] dark:text-[#44B78B]" /> Django
+              </span>
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono bg-white/75 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] text-foreground/80 shadow-2xs">
+                <SiSqlite className="w-3.5 h-3.5 text-[#003B57] dark:text-[#5BA7D1]" /> SQLite
+              </span>
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono bg-white/75 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] text-foreground/80 shadow-2xs">
+                <SiGit className="w-3.5 h-3.5 text-[#F05032]" /> Git
               </span>
             </div>
           </div>
 
           <div className="mt-8 pt-4 border-t border-border-subtle flex items-center justify-between">
             <span className="text-xs font-mono text-subtle-foreground">
-              Regulation-Based Archive
+              Media Pipelines &amp; Auth
             </span>
             <Link
-              href="/work/student-portal"
+              href="/work/vid-vault"
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium"
             >
               <span>View Case Study</span>

@@ -7,7 +7,39 @@ import {
   HiOutlineCpuChip,
   HiOutlineCommandLine,
   HiOutlineShieldCheck,
+  HiOutlineBolt,
+  HiOutlineHeart,
 } from 'react-icons/hi2';
+import {
+  SiAnthropic,
+  SiGithubcopilot,
+  SiCursor,
+  SiOpenrouter,
+} from 'react-icons/si';
+import { TbBrandOpenai } from 'react-icons/tb';
+
+function getAiToolIcon(tool: string) {
+  switch (tool) {
+    case 'ChatGPT':
+      return <TbBrandOpenai className="w-3.5 h-3.5 text-emerald-500 shrink-0" />;
+    case 'Claude Code':
+      return <SiAnthropic className="w-3.5 h-3.5 text-[#D97706] shrink-0" />;
+    case 'GitHub Copilot':
+      return <SiGithubcopilot className="w-3.5 h-3.5 text-purple-400 shrink-0" />;
+    case 'Google Antigravity':
+      return <HiOutlineSparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0" />;
+    case 'Bolt':
+      return <HiOutlineBolt className="w-3.5 h-3.5 text-amber-400 shrink-0" />;
+    case 'Lovable':
+      return <HiOutlineHeart className="w-3.5 h-3.5 text-rose-400 shrink-0" />;
+    case 'Cursor':
+      return <SiCursor className="w-3.5 h-3.5 text-indigo-400 shrink-0" />;
+    case 'OpenRouter':
+      return <SiOpenrouter className="w-3.5 h-3.5 text-emerald-400 shrink-0" />;
+    default:
+      return <HiOutlineSparkles className="w-3.5 h-3.5 text-accent shrink-0" />;
+  }
+}
 
 const AI_PILLARS = [
   {
@@ -115,9 +147,10 @@ export default function AiWorkflowSection() {
           {AI_TOOLING.map((tool) => (
             <span
               key={tool}
-              className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-white/80 dark:bg-white/[0.04] border border-purple-500/10 dark:border-white/10 text-foreground/80 hover:text-foreground hover:border-purple-500/40 shadow-2xs transition-all hover:-translate-y-0.5 text-xs"
+              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-white/80 dark:bg-white/[0.04] border border-purple-500/10 dark:border-white/10 text-foreground/80 hover:text-foreground hover:border-purple-500/40 shadow-2xs transition-all hover:-translate-y-0.5 text-xs"
             >
-              {tool}
+              {getAiToolIcon(tool)}
+              <span>{tool}</span>
             </span>
           ))}
         </div>

@@ -2,7 +2,53 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import {
+  SiReact,
+  SiPython,
+  SiDjango,
+  SiJavascript,
+  SiCss,
+  SiMysql,
+  SiSqlite,
+  SiFigma,
+  SiGit,
+  SiGithub,
+  SiVercel,
+  SiRender,
+  SiNetlify,
+} from 'react-icons/si';
+import {
+  HiOutlineCodeBracket,
+  HiOutlineDocumentText,
+  HiOutlineShieldCheck,
+  HiOutlineCubeTransparent,
+  HiOutlineArrowPath,
+  HiOutlineChartBar,
+} from 'react-icons/hi2';
 import GradientEditorial from '@/components/ui/GradientEditorial';
+
+function getToolIcon(tool: string) {
+  const t = tool.toLowerCase();
+  if (t.includes('react')) return <SiReact className="w-3 h-3 text-[#61DAFB] shrink-0" />;
+  if (t.includes('django')) return <SiDjango className="w-3 h-3 text-[#092E20] dark:text-[#44B78B] shrink-0" />;
+  if (t.includes('python')) return <SiPython className="w-3 h-3 text-[#3776AB] shrink-0" />;
+  if (t.includes('javascript') || t === 'js') return <SiJavascript className="w-3 h-3 text-[#F7DF1E] shrink-0" />;
+  if (t.includes('css')) return <SiCss className="w-3 h-3 text-[#1572B6] shrink-0" />;
+  if (t.includes('mysql')) return <SiMysql className="w-3 h-3 text-[#4479A1] shrink-0" />;
+  if (t.includes('sqlite')) return <SiSqlite className="w-3 h-3 text-[#003B57] dark:text-[#0082C8] shrink-0" />;
+  if (t.includes('figma')) return <SiFigma className="w-3 h-3 text-[#F24E1E] shrink-0" />;
+  if (t === 'git') return <SiGit className="w-3 h-3 text-[#F05032] shrink-0" />;
+  if (t.includes('github')) return <SiGithub className="w-3 h-3 text-foreground shrink-0" />;
+  if (t.includes('vercel')) return <SiVercel className="w-3 h-3 text-foreground shrink-0" />;
+  if (t.includes('render')) return <SiRender className="w-3 h-3 text-[#46E3B7] shrink-0" />;
+  if (t.includes('netlify')) return <SiNetlify className="w-3 h-3 text-[#00C7B7] shrink-0" />;
+  if (t.includes('auth')) return <HiOutlineShieldCheck className="w-3 h-3 text-emerald-500 shrink-0" />;
+  if (t.includes('api') || t.includes('rest')) return <HiOutlineCodeBracket className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('schema') || t.includes('spec') || t.includes('doc')) return <HiOutlineDocumentText className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('loop') || t.includes('iteration')) return <HiOutlineArrowPath className="w-3 h-3 text-accent shrink-0" />;
+  if (t.includes('metric')) return <HiOutlineChartBar className="w-3 h-3 text-accent shrink-0" />;
+  return <HiOutlineCubeTransparent className="w-3 h-3 text-accent shrink-0" />;
+}
 
 interface WorkflowStage {
   id: string;
@@ -412,9 +458,10 @@ export default function DevelopmentFlow() {
                     {activeStage.tools.map((tool) => (
                       <span
                         key={tool}
-                        className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-surface-sunken border border-border-subtle text-foreground/80"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-surface-sunken border border-border-subtle text-foreground/80"
                       >
-                        {tool}
+                        {getToolIcon(tool)}
+                        <span>{tool}</span>
                       </span>
                     ))}
                   </div>
@@ -500,6 +547,23 @@ export default function DevelopmentFlow() {
                         </li>
                       ))}
                     </ul>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-subtle-foreground block">
+                      Tools &amp; Frameworks:
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {stage.tools.map((t) => (
+                        <span
+                          key={t}
+                          className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10px] font-mono bg-surface border border-border-subtle text-foreground/80"
+                        >
+                          {getToolIcon(t)}
+                          <span>{t}</span>
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="p-3 rounded-lg bg-surface-sunken border border-border-subtle space-y-1 font-mono text-xs">

@@ -9,10 +9,10 @@ import {
   SiPython,
   SiJavascript,
   SiReact,
-  SiNodedotjs,
   SiDjango,
   SiMysql,
-  SiPostgresql,
+  SiSqlite,
+  SiRender,
   SiTailwindcss,
   SiGit,
   SiVercel,
@@ -23,13 +23,12 @@ const HERO_CORE_TOOLS = [
   { name: 'Python', icon: SiPython, color: '#3776AB' },
   { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
   { name: 'React.js', icon: SiReact, color: '#61DAFB' },
-  { name: 'Django', icon: SiDjango, color: '#092E20' },
-  { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
+  { name: 'Django', icon: SiDjango, color: '#092E20', className: 'text-[#092E20] dark:text-[#44B78B]' },
   { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
-  { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
-  { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
+  { name: 'SQLite', icon: SiSqlite, color: '#003B57', className: 'text-[#003B57] dark:text-[#5BA7D1]' },
   { name: 'Git', icon: SiGit, color: '#F05032' },
-  { name: 'Vercel', icon: SiVercel, color: '#FFFFFF' },
+  { name: 'Vercel', icon: SiVercel, className: 'text-black dark:text-white' },
+  { name: 'Render', icon: SiRender, color: '#46E3B7' },
 ];
 
 // =========================================================================
@@ -309,10 +308,13 @@ export default function Hero() {
             return (
               <span
                 key={t.name}
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white/75 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] text-foreground/80 hover:text-foreground hover:border-purple-500/40 shadow-2xs transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/75 dark:bg-surface/80 border border-black/[0.05] dark:border-white/[0.08] text-foreground/80 hover:text-foreground hover:border-purple-500/40 shadow-2xs transition-all hover:-translate-y-0.5"
               >
-                <Icon className="w-3 h-3 shrink-0" style={{ color: t.color }} />
-                <span className="text-[11px]">{t.name}</span>
+                <Icon
+                  className={`w-3 h-3 shrink-0 ${t.className || ''}`}
+                  style={t.color ? { color: t.color } : undefined}
+                />
+                <span className="text-[11px] font-mono">{t.name}</span>
               </span>
             );
           })}
