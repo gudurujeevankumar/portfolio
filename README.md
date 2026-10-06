@@ -8,6 +8,9 @@
 
 A high-performance, design-forward developer portfolio website built with **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS v4**, and **Motion**. Designed to demonstrate both engineering depth and refined aesthetic sensibilities, featuring an Apple-inspired liquid-glass macOS Dock navigation, interactive canvas telemetry, data-driven architecture, and real-time YouTube Data API v3 integration.
 
+> [!NOTE]
+> Repository history includes structured architectural milestones reconstructed from the completed codebase to document the project's technical organization and evolution. These milestones are not intended to represent a verbatim chronological record of the original development process.
+
 ---
 
 ## 🌟 Key Highlights
