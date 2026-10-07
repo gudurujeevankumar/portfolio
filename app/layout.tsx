@@ -24,6 +24,18 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: "Guduru Jeevan Kumar — Software Engineer / Full-Stack Developer",
   description: "Personal developer portfolio of Guduru Jeevan Kumar, an early-career Software Engineer & Full-Stack Developer based in Bengaluru, India.",
+  icons: {
+    icon: [
+      { url: '/logo.png', type: 'image/png' },
+      { url: '/icon.png', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/logo.png' },
+    ],
+    shortcut: ['/logo.png'],
+  },
 };
 
 export default function RootLayout({

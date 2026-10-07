@@ -206,7 +206,7 @@ export default function Navbar() {
             {NAV_LINKS.map((link, i) => {
               const active = isLinkActive(link.href);
               return (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   ref={el => { itemRefs.current[i] = el; }}
@@ -224,7 +224,7 @@ export default function Navbar() {
                   aria-current={active ? 'page' : undefined}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
           </div>
