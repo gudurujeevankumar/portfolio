@@ -13,7 +13,6 @@ import {
   SiMysql,
   SiSqlite,
   SiRender,
-  SiTailwindcss,
   SiGit,
   SiVercel,
 } from 'react-icons/si';

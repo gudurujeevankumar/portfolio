@@ -101,6 +101,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${project.title} — Case Study | Guduru Jeevan Kumar`,
     description: project.shortDescription || project.description,
+    openGraph: {
+      title: `${project.title} — Case Study | Guduru Jeevan Kumar`,
+      description: project.shortDescription || project.description,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} — Case Study | Guduru Jeevan Kumar`,
+      description: project.shortDescription || project.description,
+    }
   };
 }
 

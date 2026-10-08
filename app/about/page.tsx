@@ -104,6 +104,28 @@ function getMilestoneTagIcon(tag: string) {
 export default function AboutPage() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-[#FAF9F7] dark:bg-[#07080D] text-foreground transition-colors duration-300">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            "mainEntity": {
+              "@type": "Person",
+              "name": "Guduru Jeevan Kumar",
+              "jobTitle": "Python Full Stack Developer",
+              "description": "The personal engineering story, origin, leadership experiences, content creation journey, and development philosophy of Guduru Jeevan Kumar.",
+              "image": "https://gudurujeevankumarportfolio.netlify.app/profile-portrait.png",
+              "url": "https://gudurujeevankumarportfolio.netlify.app/about",
+              "sameAs": [
+                "https://github.com/gudurujeevankumar",
+                "https://www.linkedin.com/in/gudurujeevankumar",
+                "https://www.youtube.com/@JeevanKumarGuduru"
+              ]
+            }
+          })
+        }}
+      />
       {/* ==================================================================== */}
       {/* 01 & 02 — GLOBAL PAGE AMBIENT BLUSH BACKGROUND SYSTEM               */}
       {/* Light: Soft warm ivory base (#FAF9F7) + delicate pastel blushes      */}

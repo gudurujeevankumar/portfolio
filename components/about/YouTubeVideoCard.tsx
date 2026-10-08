@@ -11,7 +11,6 @@ import {
   SiPython,
   SiDjango,
   SiGit,
-  SiGithub,
   SiFigma,
 } from 'react-icons/si';
 import { TbBrandReactNative } from 'react-icons/tb';

@@ -10,7 +10,6 @@ import {
   SiJavascript,
   SiReact,
   SiGit,
-  SiGithub,
 } from 'react-icons/si';
 import { VscVscode } from 'react-icons/vsc';
 import { TbBrandReactNative } from 'react-icons/tb';

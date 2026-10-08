@@ -22,8 +22,43 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Guduru Jeevan Kumar — Software Engineer / Full-Stack Developer",
-  description: "Personal developer portfolio of Guduru Jeevan Kumar, an early-career Software Engineer & Full-Stack Developer based in Bengaluru, India.",
+  metadataBase: new URL('https://gudurujeevankumarportfolio.netlify.app'),
+  title: {
+    default: "Guduru Jeevan Kumar | Python Full Stack Developer",
+    template: "%s | Guduru Jeevan Kumar",
+  },
+  description: "Guduru Jeevan Kumar is a Python Full Stack Developer building practical web applications with Python, Django, JavaScript, React and SQL. Explore his projects, experience and developer journey.",
+  keywords: [
+    "Guduru Jeevan Kumar",
+    "Jeevan Kumar Guduru",
+    "Python Full Stack Developer",
+    "Software Engineer",
+    "React Developer",
+    "Django Developer",
+    "Python Developer Bengaluru"
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://gudurujeevankumarportfolio.netlify.app",
+    siteName: "Guduru Jeevan Kumar",
+    title: "Guduru Jeevan Kumar | Python Full Stack Developer",
+    description: "Guduru Jeevan Kumar is a Python Full Stack Developer building practical web applications with Python, Django, JavaScript, React and SQL. Explore his projects, experience and developer journey.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Guduru Jeevan Kumar — Python Full Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Guduru Jeevan Kumar | Python Full Stack Developer",
+    description: "Python Full Stack Developer building practical web applications with Python, Django, JavaScript, React and SQL.",
+    images: ["/logo.png"],
+  },
   icons: {
     icon: [
       { url: '/logo.png', type: 'image/png' },
@@ -71,6 +106,34 @@ export default function RootLayout({
                 } catch(e) {}
               })();
             `,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Guduru Jeevan Kumar",
+              "url": "https://gudurujeevankumarportfolio.netlify.app",
+              "jobTitle": "Python Full Stack Developer",
+              "sameAs": [
+                "https://github.com/gudurujeevankumar",
+                "https://www.linkedin.com/in/gudurujeevankumar",
+                "https://www.youtube.com/@JeevanKumarGuduru"
+              ]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Guduru Jeevan Kumar",
+              "url": "https://gudurujeevankumarportfolio.netlify.app"
+            })
           }}
         />
       </head>

@@ -47,6 +47,7 @@ export async function GET() {
       next: { revalidate: 1800 },
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let profileData: any = {
       name: 'Guduru Jeevan Kumar',
       public_repos: 52,
@@ -76,6 +77,7 @@ export async function GET() {
       if (contribRes.ok) {
         const contribData = await contribRes.json();
         if (contribData?.contributions && Array.isArray(contribData.contributions)) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           contributionsList = contribData.contributions.map((c: any) => ({
             date: c.date,
             count: Number(c.count || 0),
@@ -170,6 +172,7 @@ export async function GET() {
         'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=86400',
       },
     });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     console.error('[GitHub Stats API Route Error]', err);
 

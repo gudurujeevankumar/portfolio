@@ -29,6 +29,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${post.title} — Guduru Jeevan Kumar`,
     description: post.excerpt,
+    openGraph: {
+      title: `${post.title} — Guduru Jeevan Kumar`,
+      description: post.excerpt,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${post.title} — Guduru Jeevan Kumar`,
+      description: post.excerpt,
+    }
   };
 }
 

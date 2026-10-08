@@ -33,6 +33,7 @@ interface GitHubStats {
 export default function GithubGlobalSection() {
   const { profile } = portfolioData;
   const [liveStats, setLiveStats] = useState<GitHubStats | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -58,6 +59,7 @@ export default function GithubGlobalSection() {
     };
   }, []);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   // 53-week Sunday-to-Saturday calendar grid for Year 2026 (matching official GitHub calendar)
@@ -77,7 +79,7 @@ export default function GithubGlobalSection() {
 
     const calendar: DayActivity[][] = [];
     const monthFirstWeekMap: Record<number, number> = {};
-    let curr = new Date(calendarStart);
+    const curr = new Date(calendarStart);
 
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 

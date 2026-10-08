@@ -14,7 +14,6 @@ import {
   SiMysql,
   SiSqlite,
   SiGit,
-  SiGithub,
   SiRender,
   SiVercel,
   SiNetlify,
