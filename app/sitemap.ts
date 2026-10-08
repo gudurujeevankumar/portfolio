@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 import { portfolioData } from '@/data/portfolio';
 import { blogPosts } from '@/data/blog';
 
+export const dynamic = 'force-dynamic';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://gudurujeevankumarportfolio.netlify.app';
 
