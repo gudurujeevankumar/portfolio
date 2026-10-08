@@ -71,6 +71,9 @@ export const metadata: Metadata = {
     ],
     shortcut: ['/logo.png'],
   },
+  verification: {
+    google: "VDwE6poWrFVgGJ6fU61Y1WM9bGDECWdMNNDiEzCYUJo",
+  },
 };
 
 export default function RootLayout({
